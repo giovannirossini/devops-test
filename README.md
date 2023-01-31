@@ -1,4 +1,5 @@
 # DevOps Test
+The purpose of a [DevOps Test](https://github.com/giovannirossini/devops-test/) is to evaluate a developer's skills and abilities in the context of DevOps practices and methodologies.
 This is a brief guide on how to run DevOps test on your local machine.
 
 ### Prerequisites
