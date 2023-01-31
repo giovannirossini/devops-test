@@ -1,8 +1,17 @@
-FROM golang:1.19.5-alpine
+FROM golang:1.19.5-alpine as builder
 
-COPY ./server.go /opt/server.go
+WORKDIR /
 
-RUN cd /opt; go build /opt/server.go
-RUN rm /opt/server.go
+COPY ./server.go /server.go
+
+RUN go build /server.go
+
+
+FROM alpine as runner
+
+WORKDIR /opt
+
+COPY --from=builder /server /opt/server
+RUN rm /bin/netstat
 
 CMD ["/opt/server"]
