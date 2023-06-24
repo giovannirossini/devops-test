@@ -1,5 +1,5 @@
 # DevOps Test
-The purpose of a [DevOps Test](https://github.com/giovannirossini/devops-test/) is to evaluate a developer's skills and abilities in the context of DevOps practices and methodologies.
+The purpose of a [DevOps Test](https://github.com/giovannirossini/devops-test/) is to evaluate a developer's skills and abilities in the context of DevOps skills.
 This is a brief guide on how to run DevOps test on your local machine.
 
 ### Prerequisites
@@ -20,7 +20,7 @@ docker run -d giovannirossini/devops-test:latest
 ```
 
 ### Verify the Test
-To verify that the test is running, open a web browser and go to http://localhost. You should see the test running.
+To verify that the test is running, open a web browser and go to http://localhost:8080. You should see the test running.
 
 ---
 

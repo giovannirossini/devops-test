@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  go:
+    build:
+      context: .
+    container_name: go
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - 8080:8080
+      - 8573:8573
+    command: go run server.go

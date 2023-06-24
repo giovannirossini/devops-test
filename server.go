@@ -8,7 +8,8 @@ import (
 )
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Congratulations you pass the first test! Now go to /challenge to get the next challenge.")
+	welcomeMessage := "Welcome to the DevOps challenge! This is your opportunity to showcase your expertise in automation, networking and security. Whether you are an experienced DevOps professional or just starting out, this challenge will test your ability to work in a fast-paced and dynamic environment. Your task will be to demonstrate your skills in the areas of infrastructure management, deployment and automation, network security, and system performance. So, are you ready to take on this challenge and prove that you're a true DevOps professional?"
+	fmt.Fprintln(w, welcomeMessage)
 }
 
 func challengeHandler(w http.ResponseWriter, r *http.Request) {
@@ -28,11 +29,9 @@ func main() {
 	currentYear := currentTime.Year()
 	page := fmt.Sprintf("/devops%d", currentYear)
 	http.HandleFunc("/", indexHandler)
+	go http.ListenAndServe(":8080", nil)
+
 	http.HandleFunc("/challenge", challengeHandler)
 	http.HandleFunc(page, finalHandler)
-
-	err := http.ListenAndServe(":8573", nil)
-	if err != nil {
-		fmt.Println(err)
-	}
+	http.ListenAndServe(":8573", nil)
 }
